@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Vue Email List</title>
 </head>
 <body>
-    
-    <div id="app">{{ message }}</div>
+
+    <div id="app" v-cloak>
+
+        <p
+            v-if="isLoading() === true"
+        >
+            Caricamento lista email...
+        </p>
+
+        <ul
+            v-else
+        >
+            <li
+                v-for="email in emails"
+            >
+                {{ email }}
+            </li>
+        </ul>
+
+    </div>
 
 
     <!--inclusion js-->
@@ -20,6 +39,6 @@
         <script src="./js/main.js" type="text/javascript"></script>
 
     <!--inclusion js-->
-    
+
 </body>
 </html>
